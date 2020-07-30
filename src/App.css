@@ -662,7 +662,7 @@ body {
   height: 50px;
   border-radius: 25px;
   padding: 10px;
-  background: var(--gradient_5);
+  background: linear-gradient(to bottom, #00bda0, #047abd);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -702,6 +702,7 @@ body {
   top: 0;
 }
 
+/*
 .header-container-image .header-brain {
   animation-name: brainbob;
   animation-duration: 3s;
@@ -709,7 +710,9 @@ body {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+**/
 
+/*
 @keyframes brainbob {
   from {
     transform: translateY(10px) rotate(-2deg);
@@ -718,13 +721,15 @@ body {
     transform: translateY(-30px) rotate(0deg);
   }
 }
-
+*/
+/*
 .header-container-image .header-front {
   animation-name: flicker;
   animation-duration: 1s;
   animation-iteration-count: infinite;
   opacity: 0;
 }
+*/
 
 
 @keyframes flicker {
@@ -794,7 +799,7 @@ body {
 }
 
 .service-outer-1 {
-  background: var(--gradient_2);
+  background: linear-gradient(to right, #007991, #662975);
   color: white;
   transition: 0.5s;
 }
