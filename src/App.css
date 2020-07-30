@@ -694,7 +694,7 @@ body {
 }
 
 .header-container-bg {
-  background: var(--header_bg);
+  background: radial-gradient(circle, rgba(206,2,189,1) 0%, rgba(75,6,193,1) 70%);
   position: absolute;
   width: 150%;
   height: 100%;

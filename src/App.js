@@ -1,9 +1,13 @@
 import React from 'react';
-import useWebAnimations from "@wellyshen/use-web-animations";
+import useWebAnimations, { pulse, fadeInLeft } from "@wellyshen/use-web-animations";
 import './App.css';
 import introFrontLayer from './images/Intro_Front_Layer.svg';
 import introBrain from './images/Intro_Brain.svg';
 import featuredImageEmpty from './images/Intro_Featured_Image_Empty.svg';
+import UXWriting from './images/UX-writing.svg'
+import contentWriting from './images/Content-Writing.svg'
+import websiteCopyrighting from './images/Website-Copyrighting.svg';
+
 
 const App = () => {
 
@@ -47,9 +51,28 @@ const App = () => {
       iterations: Infinity,
       easing: 'ease-in-out'
     },
-
   });
 
+
+
+  const { keyframes, timing } = pulse;
+  const  refContentWriting  = useWebAnimations({
+    keyframes,
+    timing: {
+      ...timing,
+      delay: 1500, // Delay 1s
+      iterations: Infinity
+    },
+  });
+
+  const fadeInLeftAnimation = fadeInLeft;
+  const  websiteCopyrightingAnimation  = useWebAnimations({
+    keyframes: fadeInLeftAnimation.keyframes,
+    timing: {
+      ...fadeInLeftAnimation.timing,
+      delay: 1500,
+    }
+  });
 
   return (
     <>
@@ -86,7 +109,7 @@ const App = () => {
             <div className="row-inner service-section-1" id="services">
               <div className="column column-left">
                 <div className="service-image">
-                    <img src={contentWriting} alt="Cortex Copywriter Content Writing Services" />
+                    <img ref={refContentWriting.ref} src={contentWriting} alt="Cortex Copywriter Content Writing Services" />
                 </div>
               </div>
               <div className="column column-right">
@@ -116,7 +139,7 @@ const App = () => {
               <div className="row-inner service-section-3">
                   <div className="column column-left">
                       <div className="service-image">
-                          <img src={websiteCopyrighting} alt="Cortex Copywriter Web Copywriting Services" />
+                          <img ref={websiteCopyrightingAnimation.ref} src={websiteCopyrighting} alt="Cortex Copywriter Web Copywriting Services" />
                       </div>
                   </div>
                   <div className="column column-right">
@@ -126,10 +149,7 @@ const App = () => {
                   </div>
               </div>
           </div>
-
-
         </div>
-
       </div>
     </>
   );
